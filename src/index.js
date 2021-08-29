@@ -3,11 +3,36 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+// import store
+import { createStore } from 'redux';
+
+// import combined reducers
+import allReducer from './reducers';
+
+import {Provider} from 'react-redux';
+
+// STORE -> Globlaized state
+const store = createStore(
+  allReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+// action is simply a function returns object
+// ACTION INCREMENT
+
+// REDUCER
+// two parameter 1. initial state 2. action
+
+// Display it in the console
+
+// DISPATCH
 
 ReactDOM.render(
+  <Provider store={store}>
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 
